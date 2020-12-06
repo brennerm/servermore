@@ -54,8 +54,6 @@ export class ServerMore extends Component<Props, State> {
   render() {
     return (
       <div>
-        <Helmet>
-        </Helmet>
         <Navbar id="header" fixed="top" bg="light">
           <Navbar.Brand href="/">
             <HddFill className="text-info"></HddFill>
