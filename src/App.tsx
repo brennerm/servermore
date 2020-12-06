@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton } from 'react-bootstrap'
-import { HeartFill } from 'react-bootstrap-icons';
+import { ButtonGroup, Card, Col, Container, Form, Navbar, Row, ToggleButton } from 'react-bootstrap'
+import { HeartFill, HddFill } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Question } from './models';
 import { questions } from './questions';
+import { Helmet } from 'react-helmet';
 
 interface Props { }
 interface State {
@@ -54,8 +55,17 @@ export class ServerMore extends Component<Props, State> {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>ServerMore</title>
+          <meta name="description" content="ServerMore - an application that guides you whether to go Serverless or not" />
+          <link rel="canonical" href="https://brennerm.github.io/servermore" />
+        </Helmet>
         <Navbar id="header" fixed="top" bg="light">
-          <Navbar.Brand href="/">Servermore</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <HddFill className="text-info"></HddFill>
+            {' '}
+            Servermore
+            </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               Built with <HeartFill className="text-danger"></HeartFill> by <a href="https://brennerm.github.io/about.html">brennerm</a>
@@ -63,6 +73,18 @@ export class ServerMore extends Component<Props, State> {
           </Navbar.Collapse>
         </Navbar>
         <Container className="App">
+          <Row>
+            <Col>
+              <Card className="text-center">
+                <Card.Body>
+                  <Card.Text>
+                    ServerMore has the single purpose of helping you answering the questions whether going Serverless is a viable option for your application.
+                    Answer as many questions as you want and the indicator on the bottom of the page will give an estimate whether going Serverless or using traditional servers fits your use case.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
           {this.questions.map((question, questionIndex) => (
             <Form.Group key={questionIndex}>
               <Row>
@@ -76,6 +98,7 @@ export class ServerMore extends Component<Props, State> {
                     {question.answers.map((answer, answerIndex) => (
                       <ToggleButton
                         type="radio"
+                        variant="info"
                         key={`${questionIndex}-${answerIndex}`}
                         value={answerIndex}
                         checked={this.state.selectedAnswers[questionIndex] === answerIndex}
@@ -122,16 +145,16 @@ class ServerMoreValue extends Component<ServerMoreValueProps, ServerMoreValueSta
   }
 
   render() {
-    return <Navbar id="footer" fixed="bottom" className="justify-content-between">
-        <Col xs="3">
-          <Form.Label>serverless</Form.Label>
-        </Col>
-        <Col xs="6">
-          <Form.Control type="range" value={this.props.value} readOnly max="100" min="-100" />
-        </Col>
-        <Col xs="3">
-          <Form.Label>servermore</Form.Label>
-        </Col>
+    return <Navbar id="footer" fixed="bottom" className="justify-content-between bg-light">
+      <Col xs="3">
+        <Form.Label>serverless</Form.Label>
+      </Col>
+      <Col xs="6">
+        <Form.Control type="range" value={this.props.value} readOnly max="100" min="-100" />
+      </Col>
+      <Col xs="3">
+        <Form.Label>servermore</Form.Label>
+      </Col>
     </Navbar>
   }
 }
