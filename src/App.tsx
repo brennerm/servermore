@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Question } from './models';
 import { questions } from './questions';
-import { Helmet } from 'react-helmet';
 
 interface Props { }
 interface State {
@@ -56,9 +55,6 @@ export class ServerMore extends Component<Props, State> {
     return (
       <div>
         <Helmet>
-          <title>ServerMore</title>
-          <meta name="description" content="ServerMore - an application that guides you whether to go Serverless or not" />
-          <link rel="canonical" href="https://brennerm.github.io/servermore" />
         </Helmet>
         <Navbar id="header" fixed="top" bg="light">
           <Navbar.Brand href="/">
