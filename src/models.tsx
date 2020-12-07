@@ -6,6 +6,10 @@ export class Question {
     this.questionText = questionText
     this.answers = answers
   }
+
+  public get maxAnswerValue(): number {
+    return Math.max(...this.answers.map((answer) => Math.abs(answer.value)), 0)
+  }
 }
 
 export class Answer {
@@ -13,7 +17,7 @@ export class Answer {
   value: number;
   hint: string;
 
-  constructor(answerText: string, value: number, hint: string) { 
+  constructor(answerText: string, value: number, hint: string) {
     this.answerText = answerText
     this.value = value
     this.hint = hint

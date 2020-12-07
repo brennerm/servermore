@@ -3,7 +3,7 @@ import { Question } from "./models";
 
 export const questions = [
     new Question(
-        "How quick does your application start up?",
+        "How quickly does your application start up?",
         [
             new Answer(
                 "Slow",
@@ -22,12 +22,12 @@ export const questions = [
         [
             new Answer(
                 "Yes",
-                10,
+                20,
                 "Running long term tasks serverless will result in higher costs compared to running on a 24/7 server."
             ),
             new Answer(
                 "No",
-                -10,
+                -20,
                 "Serverless is great for executing short-term tasks."
             )
         ]
@@ -67,12 +67,12 @@ export const questions = [
         [
             new Answer(
                 "No",
-                10,
-                "In this case you may need to rewrite your application."
+                30,
+                "In this case you may need to refactor your application."
             ),
             new Answer(
                 "Yes",
-                -10,
+                -5,
                 "In this case you should be able to run serverless without needing to make too many changes to your application."
             )
         ]
@@ -83,22 +83,22 @@ export const questions = [
             new Answer(
                 "Very Important",
                 10,
-                "Switching from one serverless provider to another may come with a significant amount of migration work required."
+                "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required."
             ),
             new Answer(
                 "Kind of Important",
                 5,
-                "Switching from one serverless provider to another may come with a significant amount of migration work required."
+                "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required."
             ),
             new Answer(
                 "Not That Important",
                 -5,
-                "Good, just keep in mind that serverless often requires matching your application to the providers needs."
+                "Good, just keep in mind that serverless often requires adjusting your application to the providers standards."
             ),
             new Answer(
                 "Not Important at all",
                 -10,
-                "Good, just keep in mind that serverless often requires matching your application to the providers needs."
+                "Good, just keep in mind that serverless often requires adjusting your application to the providers standards."
             )
         ]
     ),
