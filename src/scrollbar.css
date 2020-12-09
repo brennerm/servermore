@@ -1,0 +1,15 @@
+html {
+  scrollbar-color: var(--light-background-color) var(--main-background-color);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--main-background-color);
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--light-background-color);
+}

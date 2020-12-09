@@ -8,7 +8,7 @@ export const questions = [
             new Answer(
                 "Slow",
                 10,
-                "Slow starting applications aren't a great fit for serverless as you'll experience these delays during each cold start."
+                "Slow starting applications aren't a great fit for serverless. Launching will happen frequently costing you extra time and money."
             ),
             new Answer(
                 "Fast",
@@ -23,7 +23,7 @@ export const questions = [
             new Answer(
                 "Yes",
                 20,
-                "Running long term tasks serverless will result in higher costs compared to running on a 24/7 server."
+                "Serverless computing resources are more expensive compared to traditional servers. Be aware of that when planning to run a lot of long term tasks."
             ),
             new Answer(
                 "No",
@@ -38,27 +38,27 @@ export const questions = [
             new Answer(
                 "I have a good understand of which load I can expect.",
                 10,
-                "If you can plan your required compute capacity beforehand, running on traditional servers will be cheaper."
+                "If you can plan your required compute capacity beforehand, running on traditional servers with autoscaling will be cheaper."
             ),
             new Answer(
                 "I'm regularly encountering unpredictable traffic spikes.",
-                -10,
+                -30,
                 "Unpredictable load is where serverless really shines."
             )
         ]
     ),
     new Question(
-        "Do you have resources to take care of server maintenance yourself?",
+        "Do you have the option to take care of server maintenance yourself?",
         [
             new Answer(
                 "No",
-                10,
+                -30,
                 "Going serverless requires you to do no maintenance of servers whatsoever."
             ),
             new Answer(
                 "Yes",
-                -10,
-                "If you have the resources, managing your on-premise or cloud servers is definitely a valid option."
+                10,
+                "If you have the resources, managing your on-premise or cloud servers will give you more freedom in adjusting the environment to your needs."
             )
         ]
     ),
@@ -82,12 +82,12 @@ export const questions = [
         [
             new Answer(
                 "Very Important",
-                10,
+                20,
                 "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required."
             ),
             new Answer(
                 "Kind of Important",
-                5,
+                10,
                 "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required."
             ),
             new Answer(
@@ -114,6 +114,56 @@ export const questions = [
                 "No",
                 -5,
                 "In this case you'll be fine going with serverless."
+            )
+        ]
+    ),
+    new Question(
+        "Is your code stateless?",
+        [
+            new Answer(
+                "Yes",
+                -20,
+                "This way you can benefit from Serverless' autoscaling out of the box."
+            ),
+            new Answer(
+                "No",
+                30,
+                "That's something that is required to take advantage of serverless computing. Make sure to extracts all kinds of state into an external component like a database or cache."
+            )
+        ]
+    ),
+    new Question(
+        "Is your code reading its configuration from environment variables?",
+        [
+            new Answer(
+                "Yes",
+                -10,
+                "Passing configuration parameters through environment variables is the preferred way by most Serverless providers."
+            ),
+            new Answer(
+                "It does not require any configuration.",
+                0,
+                null
+            ),
+            new Answer(
+                "No",
+                10,
+                "You may need to adjust your code in this case. "
+            )
+        ]
+    ),
+    new Question(
+        "Does your application code exceed the maximum file size of your Serverless provider?",
+        [
+            new Answer(
+                "Yes",
+                20,
+                "This limit is probably not adjustable which means you need to decrease the size of your application."
+            ),
+            new Answer(
+                "No",
+                -5,
+                "This way you won't run into problems when deploying your application code to your Serverless provider."
             )
         ]
     )

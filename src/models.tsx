@@ -4,7 +4,7 @@ export class Question {
 
   constructor(questionText: string, answers: Array<Answer>) {
     this.questionText = questionText
-    this.answers = answers
+    this.answers = answers.sort((first, second) => second.value - first.value)
   }
 
   public get maxAnswerValue(): number {
@@ -15,9 +15,9 @@ export class Question {
 export class Answer {
   answerText: string;
   value: number;
-  hint: string;
+  hint: string | null;
 
-  constructor(answerText: string, value: number, hint: string) {
+  constructor(answerText: string, value: number, hint: string | null) {
     this.answerText = answerText
     this.value = value
     this.hint = hint

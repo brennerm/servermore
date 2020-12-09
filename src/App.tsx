@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Card, Col, Container, Form, Navbar, Row, ToggleButton, Image } from 'react-bootstrap'
+import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Card, Alert } from 'react-bootstrap'
 import { HeartFill, Moon, Sun, Hammer } from 'react-bootstrap-icons';
+import './scrollbar.css';
+import './slider.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Question } from './models';
@@ -101,60 +103,75 @@ export class ServerMore extends Component<Props, State> {
             <Hammer className="text-secondary"></Hammer> with <HeartFill className="text-danger"></HeartFill> by <a href="https://brennerm.github.io/about.html">brennerm</a>
           </Col>
         </Navbar>
-        <Container className="App">
-          <Row>
-            <Col>
-              <Card className="text-center">
-                <Card.Body>
-                  <Card.Text className="lead">
-                    Serverless or go with regular servers?
-                    <br />
-                    <br />
-                    That's all ServerMore is going to help you with.
+        <div className="content">
+          <Container>
+            <Row>
+              <Col>
+                <Jumbotron>
+                  <h2>
+                    Go serverless or run on regular servers?
+                  </h2>
+                  <p>
+                    That's what ServerMore is going to help you with.
                     Answer as many questions as you want and the slider at the bottom will give you an indication based on your responses.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          {this.questions.map((question, questionIndex) => (
-            <Form.Group key={questionIndex}>
-              <Row>
-                <Col>
-                  <Form.Label>{question.questionText}</Form.Label>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <ButtonGroup toggle className="flex-wrap">
-                    {question.answers.map((answer, answerIndex) => (
-                      <ToggleButton
-                        type="radio"
-                        variant="primary"
-                        key={`${questionIndex}-${answerIndex}`}
-                        value={answerIndex}
-                        checked={this.state.selectedAnswers[questionIndex] === answerIndex}
-                        onChange={() => this.selectAnswer(questionIndex, answerIndex)}>
-                        {answer.answerText}
-                      </ToggleButton>
+                  </p>
+                </Jumbotron>
+              </Col>
+            </Row>
+            {this.questions.map((question, questionIndex) => (
+              <Form.Group key={questionIndex}>
+                <Row>
+                  <Col>
+                    <Form.Label>{question.questionText}</Form.Label>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <ButtonGroup toggle className="flex-wrap">
+                      {question.answers.map((answer, answerIndex) => (
+                        <ToggleButton
+                          type="radio"
+                          variant="primary"
+                          key={`${questionIndex}-${answerIndex}`}
+                          value={answerIndex}
+                          checked={this.state.selectedAnswers[questionIndex] === answerIndex}
+                          onChange={() => this.selectAnswer(questionIndex, answerIndex)}>
+                          {answer.answerText}
+                        </ToggleButton>
 
-                    ))}
-                  </ButtonGroup>
+                      ))}
+                    </ButtonGroup>
 
-                  {
-                    this.state.selectedAnswers[questionIndex] !== undefined
-                      ? <Row><Col><div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
-                        {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
-                      </div>
-                      </Col></Row>
-                      : null
-                  }
+                    {
+                      this.state.selectedAnswers[questionIndex] !== undefined
+                        ? <Row><Col><div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
+                          {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
+                        </div>
+                        </Col></Row>
+                        : null
+                    }
 
-                </Col>
-              </Row>
-            </Form.Group>
-          ))}
-        </Container>
+                  </Col>
+                </Row>
+              </Form.Group>
+            ))}
+            <Row>
+              <Col></Col>
+              <Col sm="auto">
+                <Alert variant="info">
+                  Missing a question or don't agree with an existing one?
+                  <br></br>
+                <Alert.Link href="https://github.com/brennerm/servermore/issues">
+                    Submit an issue
+                </Alert.Link> or <Alert.Link href="https://github.com/brennerm/servermore/pulls">
+                    propose the change yourself!
+                </Alert.Link>
+                </Alert>
+              </Col>
+              <Col></Col>
+            </Row>
+          </Container>
+        </div>
         <ServerMoreValue value={this.state.value} />
       </div>
     );

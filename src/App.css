@@ -8,7 +8,7 @@ html {
   --link-color: rgb(0, 112, 201);
   --main-background-color: rgb(255, 255, 255);
   --light-background-color: rgb(224, 224, 224);
-  --main-button-color: #1A81EF
+  --main-button-color: #1A81EF;
 }
 
 html.dark-mode {
@@ -17,14 +17,21 @@ html.dark-mode {
   --link-color: rgb(0, 112, 201);
   --main-background-color: rgb(28, 28, 30);
   --light-background-color: rgb(68, 68, 73);
-  --main-button-color: #0F6DD2
+  --main-button-color: #0F6DD2;
+}
+
+div.jumbotron {
+  padding: 2rem 2rem;
+  background-color: var(--light-background-color);
+  color: var(--main-text-color);
+  border-color: var(--light-background-color);
+  transition: all 0.5s;
 }
 
 div.card {
   background-color: var(--light-background-color);
   color: var(--main-text-color);
   border-color: var(--light-background-color);
-  transition: all 0.5s;
 }
 
 .btn.btn-main {
@@ -44,7 +51,7 @@ html body {
   height: 30px;
 }
 
-.App {
+.content {
   text-align: center;
   position: absolute;
   top: 50px;
