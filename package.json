@@ -1,5 +1,6 @@
 {
   "name": "servermore",
+  "homepage": "https://brennerm.github.io/servermore",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
