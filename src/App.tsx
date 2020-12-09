@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Card, Alert } from 'react-bootstrap'
+import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert } from 'react-bootstrap'
 import { HeartFill, Moon, Sun, Hammer } from 'react-bootstrap-icons';
 import './scrollbar.css';
 import './slider.css';
