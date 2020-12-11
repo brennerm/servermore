@@ -28,6 +28,20 @@ div.jumbotron {
   transition: all 0.5s;
 }
 
+.visible {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.invisible {
+  opacity: 0;
+  max-height: 0;
+}
+
+.transition-delay-1s {
+  transition-delay: 1s;
+}
+
 div.card {
   background-color: var(--light-background-color);
   color: var(--main-text-color);
