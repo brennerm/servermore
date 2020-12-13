@@ -16,12 +16,16 @@ input[type=range]::-webkit-slider-thumb {
   height: 15px;
   background: var(--light-text-color);
   cursor: default;
+  border: none;
+  border-radius: 50%;
+  transition: 0.5s;
 }
 
 input[type=range]::-moz-range-thumb {
   width: 15px;
   height: 15px;
   background: var(--light-text-color);
+  border: none;
   cursor: default;
   transition: 0.5s;
 }

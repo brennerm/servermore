@@ -106,7 +106,7 @@ export class ServerMore extends Component<Props, State> {
             <Row>
               <Col>
                 <Jumbotron>
-                  <h2>
+                  <h1 className="display-5">
                     Go <OverlayTrigger trigger="click" key="top" placement="top"
                       overlay={
                         <Tooltip id={`tooltip-top`}>
@@ -115,7 +115,7 @@ export class ServerMore extends Component<Props, State> {
                       }>
                       <span className="tooltip-text">serverless</span>
                     </OverlayTrigger> or run on regular servers?
-                  </h2>
+                  </h1>
                   <p>
                     That's what ServerMore is going to help you with.
                     Answer as many questions as you want and the slider at the bottom will give you an indication based on your responses.

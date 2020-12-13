@@ -86,7 +86,6 @@ html body {
   height: 50px;
 }
 
-
 #header div {
   padding-left: 0;
   padding-right: 0;
@@ -106,7 +105,13 @@ html body {
 }
 
 .tooltip-text {
-  cursor: pointer;
+  cursor: help;
   text-decoration: underline;
   text-decoration-style: dotted;
+}
+
+.display-5 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
 }
