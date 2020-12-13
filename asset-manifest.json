@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/servermore/static/css/main.81dfb8b8.chunk.css",
-    "main.js": "/servermore/static/js/main.6e2eb102.chunk.js",
-    "main.js.map": "/servermore/static/js/main.6e2eb102.chunk.js.map",
-    "runtime-main.js": "/servermore/static/js/runtime-main.41dcf295.js",
-    "runtime-main.js.map": "/servermore/static/js/runtime-main.41dcf295.js.map",
+    "main.css": "/servermore/static/css/main.2d9cd3ef.chunk.css",
+    "main.js": "/servermore/static/js/main.c2665b29.chunk.js",
+    "main.js.map": "/servermore/static/js/main.c2665b29.chunk.js.map",
+    "runtime-main.js": "/servermore/static/js/runtime-main.f6e947ac.js",
+    "runtime-main.js.map": "/servermore/static/js/runtime-main.f6e947ac.js.map",
     "static/css/2.1a02f21c.chunk.css": "/servermore/static/css/2.1a02f21c.chunk.css",
-    "static/js/2.4997d162.chunk.js": "/servermore/static/js/2.4997d162.chunk.js",
-    "static/js/2.4997d162.chunk.js.map": "/servermore/static/js/2.4997d162.chunk.js.map",
-    "static/js/3.31668d6e.chunk.js": "/servermore/static/js/3.31668d6e.chunk.js",
-    "static/js/3.31668d6e.chunk.js.map": "/servermore/static/js/3.31668d6e.chunk.js.map",
+    "static/js/2.2822f4fd.chunk.js": "/servermore/static/js/2.2822f4fd.chunk.js",
+    "static/js/2.2822f4fd.chunk.js.map": "/servermore/static/js/2.2822f4fd.chunk.js.map",
+    "static/js/3.703f871c.chunk.js": "/servermore/static/js/3.703f871c.chunk.js",
+    "static/js/3.703f871c.chunk.js.map": "/servermore/static/js/3.703f871c.chunk.js.map",
     "index.html": "/servermore/index.html",
     "static/css/2.1a02f21c.chunk.css.map": "/servermore/static/css/2.1a02f21c.chunk.css.map",
-    "static/css/main.81dfb8b8.chunk.css.map": "/servermore/static/css/main.81dfb8b8.chunk.css.map",
-    "static/js/2.4997d162.chunk.js.LICENSE.txt": "/servermore/static/js/2.4997d162.chunk.js.LICENSE.txt",
+    "static/css/main.2d9cd3ef.chunk.css.map": "/servermore/static/css/main.2d9cd3ef.chunk.css.map",
+    "static/js/2.2822f4fd.chunk.js.LICENSE.txt": "/servermore/static/js/2.2822f4fd.chunk.js.LICENSE.txt",
     "static/media/logo.8b626ecb.svg": "/servermore/static/media/logo.8b626ecb.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.41dcf295.js",
+    "static/js/runtime-main.f6e947ac.js",
     "static/css/2.1a02f21c.chunk.css",
-    "static/js/2.4997d162.chunk.js",
-    "static/css/main.81dfb8b8.chunk.css",
-    "static/js/main.6e2eb102.chunk.js"
+    "static/js/2.2822f4fd.chunk.js",
+    "static/css/main.2d9cd3ef.chunk.css",
+    "static/js/main.c2665b29.chunk.js"
   ]
 }
