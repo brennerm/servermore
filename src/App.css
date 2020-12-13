@@ -106,7 +106,7 @@ html body {
 }
 
 .tooltip-text {
-  cursor: pointer;
+  cursor: help;
   text-decoration: underline;
   text-decoration-style: dotted;
 }
