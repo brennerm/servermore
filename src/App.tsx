@@ -134,7 +134,7 @@ export class ServerMore extends Component<Props, State> {
                       {question.answers.map((answer, answerIndex) => (
                         <ToggleButton
                           type="radio"
-                          variant={answer.value  === 0 ? "secondary" : "primary"}
+                          variant={answer.value === 0 ? "secondary" : "primary"}
                           key={`${questionIndex}-${answerIndex}`}
                           value={answerIndex}
                           checked={this.state.selectedAnswers[questionIndex] === answerIndex}
