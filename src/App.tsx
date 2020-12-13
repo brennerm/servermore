@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert, Collapse } from 'react-bootstrap'
+import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert, Collapse, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { HeartFill, Moon, Sun, Hammer } from 'react-bootstrap-icons';
 import './scrollbar.css';
 import './slider.css';
@@ -107,7 +107,14 @@ export class ServerMore extends Component<Props, State> {
               <Col>
                 <Jumbotron>
                   <h2>
-                    Go serverless or run on regular servers?
+                    Go <OverlayTrigger trigger="click" key="top" placement="top"
+                      overlay={
+                        <Tooltip id={`tooltip-top`}>
+                          Don't know what's serverless? <a href="https://en.wikipedia.org/wiki/Serverless_computing">Read about it!</a>
+                        </Tooltip>
+                      }>
+                      <span className="tooltip-text">serverless</span>
+                    </OverlayTrigger> or run on regular servers?
                   </h2>
                   <p>
                     That's what ServerMore is going to help you with.
