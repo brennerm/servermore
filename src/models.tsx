@@ -4,6 +4,7 @@ export class Question {
 
   constructor(questionText: string, answers: Array<Answer>) {
     this.questionText = questionText
+    answers.push(new Answer('Skip Question', 0, null))
     this.answers = answers.sort((first, second) => second.value - first.value)
   }
 
