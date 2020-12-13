@@ -20,14 +20,6 @@ html.dark-mode {
   --main-button-color: #0F6DD2;
 }
 
-div.jumbotron {
-  padding: 2rem 2rem;
-  background-color: var(--light-background-color);
-  color: var(--main-text-color);
-  border-color: var(--light-background-color);
-  transition: all 0.5s;
-}
-
 .visible {
   opacity: 1;
   transition: opacity 0.5s;
@@ -42,10 +34,16 @@ div.jumbotron {
   transition-delay: 1s;
 }
 
+div.jumbotron,
 div.card {
   background-color: var(--light-background-color);
   color: var(--main-text-color);
   border-color: var(--light-background-color);
+  transition: 0.5s;
+}
+
+div.jumbotron {
+  padding: 2rem 2rem;
 }
 
 .btn.btn-main {
@@ -59,6 +57,10 @@ html body {
   background-color: var(--main-background-color);
   color: var(--main-text-color);
   transition: all 0.5s;
+}
+
+.question {
+  margin-bottom: 20px;
 }
 
 .App-logo {

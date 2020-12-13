@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert, Collapse, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert, Collapse, OverlayTrigger, Tooltip, Card } from 'react-bootstrap'
 import { HeartFill, Moon, Sun, Hammer } from 'react-bootstrap-icons';
 import './scrollbar.css';
 import './slider.css';
@@ -125,44 +125,38 @@ export class ServerMore extends Component<Props, State> {
             </Row>
             {this.questions.map((question, questionIndex) => (
               <Collapse key={questionIndex} in={(questionIndex === 0 || this.state.selectedAnswers[questionIndex - 1] !== undefined)}>
-                <Form.Group>
-                  <Row>
-                    <Col>
-                      <Form.Label>{question.questionText}</Form.Label>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <ButtonGroup toggle className="flex-wrap">
-                        {question.answers.map((answer, answerIndex) => (
-                          <ToggleButton
-                            type="radio"
-                            variant="primary"
-                            key={`${questionIndex}-${answerIndex}`}
-                            value={answerIndex}
-                            checked={this.state.selectedAnswers[questionIndex] === answerIndex}
-                            onChange={() => this.selectAnswer(questionIndex, answerIndex)}>
-                            {answer.answerText}
-                          </ToggleButton>
+                <Card className="question">
+                  <Card.Header>
+                    <Form.Label>{question.questionText}</Form.Label>
+                  </Card.Header>
+                  <Card.Body>
+                    <ButtonGroup toggle className="flex-wrap">
+                      {question.answers.map((answer, answerIndex) => (
+                        <ToggleButton
+                          type="radio"
+                          variant="primary"
+                          key={`${questionIndex}-${answerIndex}`}
+                          value={answerIndex}
+                          checked={this.state.selectedAnswers[questionIndex] === answerIndex}
+                          onChange={() => this.selectAnswer(questionIndex, answerIndex)}>
+                          {answer.answerText}
+                        </ToggleButton>
 
-                        ))}
-                      </ButtonGroup>
-
-                      <Row>
-                        <Col className={this.state.selectedAnswers[questionIndex] === undefined ? "invisible" : "visible"}>
-                          {
-                            this.state.selectedAnswers[questionIndex] !== undefined
-                              ? <div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
-                                {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
-                              </div>
-                              : null
-                          }
-                        </Col>
-                      </Row>
-
-                    </Col>
-                  </Row>
-                </Form.Group>
+                      ))}
+                    </ButtonGroup>
+                  </Card.Body>
+                  <div className={this.state.selectedAnswers[questionIndex] === undefined ? "invisible" : "visible"}>
+                    <Card.Footer>
+                      {
+                        this.state.selectedAnswers[questionIndex] !== undefined
+                          ? <div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
+                            {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
+                          </div>
+                          : null
+                      }
+                    </Card.Footer>
+                  </div>
+                </Card>
               </Collapse>
             ))}
             <Row>
