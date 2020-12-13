@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert } from 'react-bootstrap'
+import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert, Collapse } from 'react-bootstrap'
 import { HeartFill, Moon, Sun, Hammer } from 'react-bootstrap-icons';
 import './scrollbar.css';
 import './slider.css';
@@ -52,7 +52,6 @@ export class ServerMore extends Component<Props, State> {
   }
 
   selectAnswer(questionIndex: number, answerIndex: number) {
-    console.log(`select: Question: ${questionIndex}, Answer: ${answerIndex}`)
     let selectedAnswersCopy = [...this.state.selectedAnswers];
     selectedAnswersCopy[questionIndex] = answerIndex
     this.setState({ selectedAnswers: selectedAnswersCopy }, () => {
@@ -64,7 +63,6 @@ export class ServerMore extends Component<Props, State> {
     let newValue = 0
 
     this.state.selectedAnswers.forEach((answerIndex, questionIndex) => {
-      console.log(`update: Question: ${questionIndex}, Answer: ${answerIndex}`)
       if (answerIndex !== undefined) {
         newValue += questions[questionIndex].answers[answerIndex].value
       }
@@ -119,41 +117,46 @@ export class ServerMore extends Component<Props, State> {
               </Col>
             </Row>
             {this.questions.map((question, questionIndex) => (
-              <Form.Group key={questionIndex}>
-                <Row>
-                  <Col>
-                    <Form.Label>{question.questionText}</Form.Label>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <ButtonGroup toggle className="flex-wrap">
-                      {question.answers.map((answer, answerIndex) => (
-                        <ToggleButton
-                          type="radio"
-                          variant="primary"
-                          key={`${questionIndex}-${answerIndex}`}
-                          value={answerIndex}
-                          checked={this.state.selectedAnswers[questionIndex] === answerIndex}
-                          onChange={() => this.selectAnswer(questionIndex, answerIndex)}>
-                          {answer.answerText}
-                        </ToggleButton>
+              <Collapse key={questionIndex} in={(questionIndex === 0 || this.state.selectedAnswers[questionIndex - 1] !== undefined)}>
+                <Form.Group>
+                  <Row>
+                    <Col>
+                      <Form.Label>{question.questionText}</Form.Label>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <ButtonGroup toggle className="flex-wrap">
+                        {question.answers.map((answer, answerIndex) => (
+                          <ToggleButton
+                            type="radio"
+                            variant="primary"
+                            key={`${questionIndex}-${answerIndex}`}
+                            value={answerIndex}
+                            checked={this.state.selectedAnswers[questionIndex] === answerIndex}
+                            onChange={() => this.selectAnswer(questionIndex, answerIndex)}>
+                            {answer.answerText}
+                          </ToggleButton>
 
-                      ))}
-                    </ButtonGroup>
+                        ))}
+                      </ButtonGroup>
 
-                    {
-                      this.state.selectedAnswers[questionIndex] !== undefined
-                        ? <Row><Col><div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
-                          {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
-                        </div>
-                        </Col></Row>
-                        : null
-                    }
+                      <Row>
+                        <Col className={this.state.selectedAnswers[questionIndex] === undefined ? "invisible" : "visible"}>
+                          {
+                            this.state.selectedAnswers[questionIndex] !== undefined
+                              ? <div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
+                                {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
+                              </div>
+                              : null
+                          }
+                        </Col>
+                      </Row>
 
-                  </Col>
-                </Row>
-              </Form.Group>
+                    </Col>
+                  </Row>
+                </Form.Group>
+              </Collapse>
             ))}
             <Row>
               <Col></Col>
@@ -161,7 +164,7 @@ export class ServerMore extends Component<Props, State> {
                 <Alert variant="info">
                   Missing a question or don't agree with an existing one?
                   <br></br>
-                <Alert.Link href="https://github.com/brennerm/servermore/issues">
+                  <Alert.Link href="https://github.com/brennerm/servermore/issues">
                     Submit an issue
                 </Alert.Link> or <Alert.Link href="https://github.com/brennerm/servermore/pulls">
                     propose the change yourself!
