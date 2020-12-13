@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert } from 'react-bootstrap'
+import { ButtonGroup, Col, Container, Form, Navbar, Row, ToggleButton, Image, Jumbotron, Alert, Collapse } from 'react-bootstrap'
 import { HeartFill, Moon, Sun, Hammer } from 'react-bootstrap-icons';
 import './scrollbar.css';
 import './slider.css';
@@ -117,7 +117,7 @@ export class ServerMore extends Component<Props, State> {
               </Col>
             </Row>
             {this.questions.map((question, questionIndex) => (
-              <div key={questionIndex} className={(questionIndex === 0 || this.state.selectedAnswers[questionIndex - 1] !== undefined) ? "visible transition-delay-1s" : "invisible"}> 
+              <Collapse key={questionIndex} in={(questionIndex === 0 || this.state.selectedAnswers[questionIndex - 1] !== undefined)}>
                 <Form.Group>
                   <Row>
                     <Col>
@@ -156,7 +156,7 @@ export class ServerMore extends Component<Props, State> {
                     </Col>
                   </Row>
                 </Form.Group>
-              </div>
+              </Collapse>
             ))}
             <Row>
               <Col></Col>
