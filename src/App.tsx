@@ -110,7 +110,7 @@ export class ServerMore extends Component<Props, State> {
                     Go <OverlayTrigger trigger="click" key="top" placement="top"
                       overlay={
                         <Tooltip id={`tooltip-top`}>
-                          Don't know what's serverless? <a href="https://en.wikipedia.org/wiki/Serverless_computing">Read about it!</a>
+                          Don't know what's serverless? <a href="https://en.wikipedia.org/wiki/Serverless_computing" target="_blank" rel="noreferrer">Read about it!</a>
                         </Tooltip>
                       }>
                       <span className="tooltip-text">serverless</span>
