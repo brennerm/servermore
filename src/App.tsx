@@ -134,7 +134,7 @@ export class ServerMore extends Component<Props, State> {
                       {question.answers.map((answer, answerIndex) => (
                         <ToggleButton
                           type="radio"
-                          variant="primary"
+                          variant={answer.value === 0 ? "secondary" : "primary"}
                           key={`${questionIndex}-${answerIndex}`}
                           value={answerIndex}
                           checked={this.state.selectedAnswers[questionIndex] === answerIndex}
@@ -145,7 +145,7 @@ export class ServerMore extends Component<Props, State> {
                       ))}
                     </ButtonGroup>
                   </Card.Body>
-                  <div className={this.state.selectedAnswers[questionIndex] === undefined ? "invisible" : "visible"}>
+                  <div className={this.state.selectedAnswers[questionIndex] === undefined || this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint === null ? "invisible" : "visible"}>
                     <Card.Footer>
                       {
                         this.state.selectedAnswers[questionIndex] !== undefined
