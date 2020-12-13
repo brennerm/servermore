@@ -145,7 +145,7 @@ export class ServerMore extends Component<Props, State> {
                       ))}
                     </ButtonGroup>
                   </Card.Body>
-                  <div className={this.state.selectedAnswers[questionIndex] === undefined || this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint === null? "invisible" : "visible"}>
+                  <div className={this.state.selectedAnswers[questionIndex] === undefined || this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint === null ? "invisible" : "visible"}>
                     <Card.Footer>
                       {
                         this.state.selectedAnswers[questionIndex] !== undefined
