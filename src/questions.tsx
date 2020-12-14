@@ -83,12 +83,12 @@ export const questions = [
             new Answer(
                 "Very Important",
                 20,
-                "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required."
+                "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required. The <a href='https://www.serverless.com/' target='_blank' rel='noreferrer'>serverless framework</a> may help you to speed up the migration process."
             ),
             new Answer(
                 "Kind of Important",
                 10,
-                "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required."
+                "Take into consideration that switching from one serverless provider to another may come with a significant amount of migration work required. The <a href='https://www.serverless.com/' target='_blank' rel='noreferrer'>serverless framework</a> may help you to speed up the migration process."
             ),
             new Answer(
                 "Not That Important",
@@ -138,7 +138,7 @@ export const questions = [
             new Answer(
                 "Yes",
                 -10,
-                "Passing configuration parameters through environment variables is the preferred way by most Serverless providers."
+                "Passing configuration parameters through environment variables is the preferred way of most Serverless providers."
             ),
             new Answer(
                 "It does not require any configuration.",

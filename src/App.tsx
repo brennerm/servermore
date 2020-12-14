@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Question } from './models';
 import { questions } from './questions';
 import logo from './logo.svg';
+import { SanitizeHtml } from './sanitizeHtml';
 
 interface Props { }
 interface State {
@@ -150,7 +151,7 @@ export class ServerMore extends Component<Props, State> {
                       {
                         this.state.selectedAnswers[questionIndex] !== undefined
                           ? <div className={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].value > 0 ? "text-danger" : "text-success"}>
-                            {this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint}
+                            <SanitizeHtml html={this.questions[questionIndex].answers[this.state.selectedAnswers[questionIndex]].hint} />
                           </div>
                           : null
                       }
